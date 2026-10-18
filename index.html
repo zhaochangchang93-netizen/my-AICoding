@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="赵畅畅｜产品经理个人作品集，聚焦 AI 产品、企业服务与数据洞察。" />
+    <meta name="theme-color" content="#fffdf9" />
+    <title>赵畅畅｜产品经理</title>
+    <link rel="icon" type="image/png" href="assets/images/brand-icon.png" />
+    <link rel="preload" as="image" href="assets/images/zhao-changchang-cafe.webp" fetchpriority="high" />
+    <link rel="preload" as="font" href="assets/Muyao-Softbrush-subset.woff2" type="font/woff2" crossorigin />
+    <style>
+      @font-face { font-family: "HF Sharp"; src: url("assets/HFSharp/HFSharp-2.ttf") format("truetype"); font-display: swap; }
+      @font-face { font-family: "SJ Narrow ExtraBold"; src: url("assets/SJ-Narrow-ExtraBold/SJ-Narrow-ExtraBold/SJ-Narrow-ExtraBold-2.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Shantell Sans ExtraBold Italic"; src: url("assets/Shantell-Sans/Shantell_Sans-Irregular_ExtraBold_Italic.ttf") format("truetype"); font-weight: 800; font-style: italic; font-display: swap; }
+      @font-face { font-family: "Muyao Softbrush"; src: url("assets/Muyao-Softbrush-subset.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      :root { --ink: #15352c; --muted: #61726b; --paper: #fbfefb; --line: #dfebe4; --orange: #18785f; --lime: #bce98b; }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; min-width: 320px; color: var(--ink); background: var(--paper); font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif; }
+      a { color: inherit; text-decoration: none; }
+      .hero { position: relative; min-height: 100svh; overflow: hidden; padding: 1.75rem 1.5rem 1.25rem; isolation: isolate; }
+      .backdrop { position: absolute; z-index: 0; inset: 0; display: flex; justify-content: center; align-items: flex-start; overflow: hidden; pointer-events: none; }
+      .backdrop span { margin-top: clamp(1.25rem, 2vw, 2.2rem); background: linear-gradient(180deg, #8FD5B9 0%, #D8E4EA 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-family: "Shantell Sans ExtraBold Italic", cursive; font-size: clamp(6.8rem, 17vw, 17rem); font-weight: 800; font-style: italic; letter-spacing: .045em; line-height: .76; opacity: .92; white-space: nowrap; }
+      .glow { position: absolute; z-index: -1; top: 20%; left: 50%; width: min(82vw, 1050px); height: 45%; transform: translateX(-50%); background: radial-gradient(ellipse, rgba(255,255,255,.96), rgba(255,253,249,.15) 67%, transparent 75%); filter: blur(9px); pointer-events: none; }
+      .shell { position: relative; z-index: 1; width: min(1280px, 100%); margin: clamp(10rem, 17.5vw, 14.4rem) auto 0; padding: 1.5rem; background: transparent; border: 1px solid rgba(255,255,255,.62); border-radius: 2.2rem 2.2rem 1.6rem 1.6rem; box-shadow: 0 1.7rem 4.6rem rgba(25,80,61,.10), inset 0 1px rgba(255,255,255,.68), inset 0 -1px rgba(255,255,255,.12); backdrop-filter: blur(11px) saturate(145%) brightness(1.05); -webkit-backdrop-filter: blur(11px) saturate(145%) brightness(1.05); }
+      .nav { display: flex; align-items: center; justify-content: space-between; width: min(960px, 100%); margin: 0 auto 2.15rem; padding: .6rem .68rem .6rem 1.05rem; background: rgba(255,255,255,.93); border: 1px solid #efeee9; border-radius: 1rem; box-shadow: 0 .3rem 1.25rem rgba(42,35,25,.09); }
+      .brand { display: inline-flex; align-items: center; gap: .42rem; font-size: 1rem; font-weight: 800; letter-spacing: -.05em; white-space: nowrap; }
+      .brand-icon { width: 1.45rem; height: 1.45rem; flex: none; border-radius: .42rem; object-fit: cover; }
+      .brand em { color: var(--orange); font-style: normal; }
+      .nav-links { display: flex; gap: clamp(.85rem, 1.5vw, 1.5rem); align-items: center; color: #61615e; font-size: .92rem; font-weight: 600; }
+      .nav-links a:hover { color: var(--orange); }
+      .nav-cta { display: inline-flex; align-items: center; gap: .4rem; padding: .62rem .92rem; border: 0; color: white; background: var(--ink); border-radius: .68rem; cursor: pointer; font: inherit; font-size: .78rem; font-weight: 700; white-space: nowrap; }
+      .email-dialog { width: min(390px, calc(100vw - 32px)); margin: auto; padding: 28px; border: 1px solid rgba(255,255,255,.78); border-radius: 24px; color: var(--ink); background: rgba(249,254,251,.88); box-shadow: 0 28px 80px rgba(11,48,37,.28), inset 0 1px rgba(255,255,255,.92); backdrop-filter: blur(18px) saturate(145%); -webkit-backdrop-filter: blur(18px) saturate(145%); text-align: center; }
+      .email-dialog::backdrop { background: rgba(8,38,29,.38); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+      .email-dialog p { margin: 0 0 14px; color: var(--ink); font-size: 1.3rem; font-weight: 800; letter-spacing: -.04em; }
+      .email-address { display: inline-block; padding: 0; color: var(--orange); font-size: 1.18rem; font-weight: 800; }
+      .email-dialog-close { position: absolute; top: 14px; right: 14px; display: grid; width: 28px; height: 28px; place-items: center; padding: 0; border: 0; color: var(--ink); background: transparent; cursor: pointer; font: 1.6rem/1 Arial, sans-serif; }
+      .intro-grid { display: grid; grid-template-columns: minmax(255px, .72fr) minmax(0, 1.48fr); gap: 1.45rem; align-items: stretch; }
+      .profile-card, .statement { border: 0; background: rgba(255,255,255,.78); box-shadow: 0 .7rem 1.7rem rgba(42,35,25,.045); }
+      .profile-card { position: relative; display: flex; min-height: 435px; flex-direction: column; overflow: hidden; border-radius: 1.75rem; }
+      .avatar-space { position: relative; display: flex; flex: 1; align-items: center; justify-content: center; min-height: 295px; overflow: hidden; background: #eaf6ef; }
+      .portrait-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 48%; }
+      .portrait-doodle { position: absolute; right: .72rem; bottom: .72rem; width: clamp(3.35rem, 21%, 5.2rem); aspect-ratio: 1; border: 3px solid rgba(255,255,255,.97); border-radius: 1rem; background: #fff; box-shadow: 0 .55rem 1rem rgba(13,57,43,.2); object-fit: cover; object-position: center; }
+      .monogram { position: relative; z-index: 1; color: var(--ink); font-size: clamp(5rem, 10vw, 7.5rem); font-weight: 800; letter-spacing: -.15em; line-height: 1; }
+      .profile-caption { padding: 1.12rem 1.2rem 1.28rem; }
+      .profile-caption h2 { margin: 0; font-size: 1.25rem; letter-spacing: -.06em; }
+      .profile-caption p { margin: .28rem 0 0; color: var(--muted); font-size: .8rem; font-weight: 600; }
+      .profile-mark { position: absolute; right: 1.1rem; bottom: 1.16rem; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 0; border-radius: 50%; color: #fff; background: var(--orange); font-family: "DM Mono", monospace; font-size: .7rem; }
+      .statement { position: relative; display: flex; min-height: 435px; flex-direction: column; justify-content: center; padding: clamp(2rem, 5vw, 4.3rem); border-radius: 1.75rem; }
+      .available { display: inline-flex; align-items: center; width: max-content; gap: .5rem; margin-bottom: 1.65rem; padding: .5rem .8rem; border: 0; border-radius: 999px; color: #5d5d5a; background: #e5f3eb; font-size: .88rem; font-weight: 700; }
+      .available i { width: .48rem; height: .48rem; border-radius: 50%; background: #229a73; box-shadow: 0 0 0 .22rem rgba(34,154,115,.13); }
+      h1 { max-width: 760px; margin: 0; font-size: clamp(2.35rem, 5.1vw, 4.75rem); font-weight: 800; letter-spacing: -.085em; line-height: 1.07; }
+      .english-title { font-family: "Shantell Sans ExtraBold Italic", cursive; font-weight: 800; font-style: italic; letter-spacing: -.04em; }
+      .softbrush-title { font-family: "Muyao Softbrush", "Noto Sans SC", cursive; font-weight: 700; font-synthesis: weight; letter-spacing: .015em; }
+      .name-lock { display: inline-block; font-size: 1.16em; line-height: .92; }
+      .product-headline { font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif; font-size: .92em; font-weight: 800; letter-spacing: -.085em; }
+      .accent { color: var(--orange); white-space: nowrap; }
+      .soft { color: #bcbcb8; }
+      .ink { color: #171717; }
+      .name-lock { white-space: nowrap; }
+      .summary { max-width: 650px; margin: 1.35rem 0 1.5rem; color: #666662; font-size: clamp(.91rem, 1.4vw, 1.02rem); line-height: 1.72; }
+      .actions { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; }
+      .button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3.2rem; padding: .76rem 1.28rem; border: 0; border-radius: 999px; cursor: pointer; font: inherit; font-size: .9rem; font-weight: 800; line-height: 1; transition: transform .18s ease, box-shadow .18s ease; }
+      .button-icon { display: block; width: 1.35em; height: 1.35em; flex: none; }
+      .nav-cta svg { width: 1.4em; height: 1.4em; flex: none; }
+      .button:hover { transform: translateY(-2px); }
+      .button-primary { color: #fff; background: var(--ink); box-shadow: 0 .45rem .8rem rgba(15,15,15,.16); }
+      .button-secondary { border: 0; background: #e5f3eb; }
+      .expertise { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem 1.3rem; margin-top: 2.25rem; padding-top: 1.25rem; border-top: 1px solid #efede8; color: #777773; font-family: "DM Mono", "Noto Sans SC", monospace; font-size: .68rem; }
+      .expertise strong { color: #3f3f3d; font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif; font-size: .72rem; }
+      .expertise span::before { display: inline-block; width: .3rem; height: .3rem; margin-right: .45rem; border-radius: 50%; background: var(--orange); content: ""; vertical-align: .1em; }
+      .footer-cue { display: flex; align-items: center; justify-content: center; gap: .72rem; min-height: 3.65rem; color: #787875; font-family: "DM Mono", "Noto Sans SC", monospace; font-size: .68rem; }
+      .scroll-line { width: 2.1rem; height: 1px; background: #aaa9a5; }
+      .education { position: relative; overflow: hidden; padding: clamp(5.5rem, 10vw, 9rem) 1.5rem clamp(6rem, 10vw, 10rem); background: linear-gradient(180deg, #f9fdfa 0%, #e8f5ed 100%); }
+      .education::before { position: absolute; z-index: 0; top: clamp(1rem, 3vw, 2.8rem); left: 50%; color: rgba(24,120,95,.07); content: "EDUCATION"; font-family: "Shantell Sans ExtraBold Italic", cursive; font-size: clamp(4.5rem, 13vw, 12rem); font-style: italic; line-height: .85; transform: translateX(-50%) rotate(-2deg); white-space: nowrap; }
+      .education-inner { position: relative; z-index: 1; width: min(1300px, 100%); margin: 0 auto; }
+      .education-heading { display: flex; flex-direction: column; align-items: center; text-align: center; }
+      .education-heading h2 { margin: 1rem 0 0; color: var(--ink); font-family: "Muyao Softbrush", "Noto Sans SC", cursive; font-size: clamp(2.75rem, 5.6vw, 5.2rem); font-weight: 700; font-synthesis: weight; letter-spacing: .015em; line-height: 1; }
+      .education-heading p { max-width: 34rem; margin: .9rem 0 0; color: var(--muted); font-size: .97rem; line-height: 1.7; }
+      .education-stage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.1rem, 3vw, 2.6rem); align-items: center; max-width: 1300px; margin: clamp(3.25rem, 7vw, 5.7rem) auto 0; }
+      .edu-card { position: relative; display: flex; min-height: clamp(21rem, 34vw, 27.5rem); flex-direction: column; justify-content: flex-end; overflow: hidden; padding: clamp(1.45rem, 3vw, 2.2rem); border: 1px solid rgba(255,255,255,.7); border-radius: 1.75rem; color: white; box-shadow: 0 1.5rem 3rem rgba(21,53,44,.2), inset 0 1px rgba(255,255,255,.36); isolation: isolate; }
+      .edu-card::after { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(180deg, rgba(9,42,34,.02) 12%, rgba(9,42,34,.18) 48%, rgba(7,37,29,.68) 100%); }
+      .edu-card--bachelor { transform: rotate(-2.2deg) translateY(1.7rem); }
+      .edu-card--master { transform: rotate(2.2deg) translateY(-1.7rem); }
+      .edu-campus { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 34%; }
+      .edu-top { position: absolute; top: clamp(1.15rem, 2.5vw, 1.6rem); left: clamp(1.15rem, 2.5vw, 1.6rem); right: clamp(1.15rem, 2.5vw, 1.6rem); display: flex; align-items: center; justify-content: space-between; }
+      .edu-type { padding: .42rem .68rem; border: 1px solid rgba(255,255,255,.45); border-radius: 999px; background: rgba(8,48,38,.36); backdrop-filter: blur(8px); font-family: "DM Mono", "Noto Sans SC", monospace; font-size: .69rem; letter-spacing: .1em; }
+      .edu-seal { display: grid; width: 3.45rem; height: 3.45rem; place-items: center; overflow: hidden; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; background: rgba(255,255,255,.06); box-shadow: inset 0 1px rgba(255,255,255,.3), 0 .45rem 1rem rgba(5,27,20,.12); backdrop-filter: blur(6px) saturate(118%); -webkit-backdrop-filter: blur(6px) saturate(118%); }
+      .edu-seal img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+      .edu-card h3 { max-width: 13ch; margin: 0; font-size: clamp(1.65rem, 3.2vw, 2.35rem); letter-spacing: -.06em; line-height: 1.02; }
+      .edu-major { margin: .72rem 0 0; color: rgba(255,255,255,.87); font-size: .95rem; font-weight: 600; }
+      .edu-meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+      .edu-meta span { padding: .38rem .62rem; border: 1px solid rgba(255,255,255,.26); border-radius: 999px; background: rgba(255,255,255,.13); color: rgba(255,255,255,.94); font-family: "DM Mono", "Noto Sans SC", monospace; font-size: .68rem; }
+      /* Internship interaction styles live in assets/internships.css */
+      @media (min-width: 781px) { .hero { height: 100svh; min-height: 0; padding: 1.15rem 1.5rem .85rem; } .backdrop span { margin-top: .95rem; transform: translateY(calc(clamp(-1rem, -1.5vh, -.65rem) + 1.25rem)); font-size: clamp(5.5rem, 10.8vw, 12.5rem); } .shell { margin-top: clamp(5.8rem, 15vh, 9.25rem); padding: 1rem; } .nav { margin-bottom: 1.15rem; } .profile-card, .statement { min-height: clamp(290px, 36vh, 350px); } .avatar-space { min-height: 0; } .statement { padding: clamp(1.45rem, 2.45vw, 2.55rem); } h1 { font-size: clamp(2.1rem, 3vw, 3.35rem); } .available { margin-bottom: .9rem; } .summary { margin: .8rem 0 .95rem; } .expertise { margin-top: 1.05rem; padding-top: .85rem; } .footer-cue { min-height: 2.15rem; } }
+      @media (max-width: 980px) and (min-width: 781px) { .statement { padding: 2.25rem; } h1 { font-size: clamp(2.1rem, 4.8vw, 3.35rem); } }
+      @media (max-width: 780px) { .hero { padding: 1.15rem .85rem .8rem; } .shell { margin-top: 8.4rem; padding: .85rem; border-radius: 1.5rem 1.5rem 1.1rem 1.1rem; } .nav { margin: 0 auto 1.25rem; padding: .56rem .6rem .56rem .85rem; } .nav-links { display: none; } .intro-grid { grid-template-columns: 1fr; gap: .85rem; } .profile-card { min-height: auto; flex-direction: row; border-radius: 1.35rem; } .avatar-space { flex: 0 0 39%; min-height: 165px; } .monogram { font-size: 3.65rem; } .profile-caption { display: flex; flex: 1; flex-direction: column; justify-content: center; padding-right: 3.2rem; } .profile-mark { bottom: 50%; transform: translateY(50%); } .statement { min-height: auto; padding: 1.6rem; border-radius: 1.35rem; } .available { margin-bottom: 1.1rem; } h1 { font-size: clamp(2rem, 10.3vw, 3.1rem); } .summary { margin: 1rem 0 1.25rem; font-size: .91rem; } .expertise { margin-top: 1.45rem; } .footer-cue { min-height: 2.9rem; } .education { padding: 4.8rem .85rem 5.5rem; } .education-stage { grid-template-columns: 1fr; gap: 1.7rem; margin-top: 3.2rem; } .edu-card { min-height: 23rem; } .edu-card--bachelor, .edu-card--master { transform: none; } .edu-card--master { margin-top: 0; } }
+      @media (max-width: 430px) { .nav-cta { padding: .58rem .7rem; } .brand { font-size: .91rem; } .actions { align-items: stretch; flex-direction: column; } .button { width: 100%; } }
+    </style>
+    <link rel="stylesheet" href="assets/internships.css" />
+    <link rel="stylesheet" href="assets/projects.css" />
+  </head>
+  <body>
+    <main class="hero" id="top">
+      <div class="backdrop" aria-hidden="true"><span>PROFILE</span></div>
+      <div class="glow" aria-hidden="true"></div>
+      <section class="shell" aria-label="个人简介">
+        <nav class="nav" aria-label="主导航">
+          <a class="brand" href="#top"><img class="brand-icon" src="assets/images/brand-icon.webp" alt="" aria-hidden="true" decoding="async" /><span><em>赵</em>畅畅</span></a>
+          <div class="nav-links"><a href="#profile">个人简介</a><a href="#education">教育经历</a><a href="#internships">实习档案</a><a href="#projects">项目经历</a></div>
+          <button class="nav-cta" type="button" data-email-dialog-open><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.5 5.7L19.5 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>邮箱联系</button>
+        </nav>
+        <div class="intro-grid" id="profile">
+          <aside class="profile-card" aria-label="赵畅畅个人名片">
+            <div class="avatar-space"><img class="portrait-photo" src="assets/images/zhao-changchang-cafe.webp" width="1847" height="1849" alt="赵畅畅与玩偶的照片" decoding="async" fetchpriority="high" /><img class="portrait-doodle" src="assets/images/zhao-changchang-illustration.webp" alt="" aria-hidden="true" decoding="async" /></div>
+            <div class="profile-caption"><h2>赵畅畅</h2><p>产品经理候选人 · 2027</p></div>
+            <span class="profile-mark" aria-hidden="true">PM</span>
+          </aside>
+          <section class="statement">
+            <div class="available"><i aria-hidden="true"></i>正在寻找2027届校招产品经理的机会</div>
+            <h1><span class="english-title">Hi, I’m</span> <span class="name-lock softbrush-title">赵畅畅</span><br><span class="product-headline"><span class="accent">懂业务、懂沟通、拥抱AI</span><span class="soft">的</span><br><span class="ink">产品练习生</span></span></h1>
+            <p class="summary">关注 AI 在企业真实业务场景中的落地，希望将技术能力转化为可落地、可持续迭代的产品方案，赋能企业提效与增长</p>
+            <div class="actions"><button class="button button-primary" type="button" data-email-dialog-open><svg class="button-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.5 5.7L19.5 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>与我联系</button><a class="button button-secondary" href="assets/resume/zhao-changchang-resume.pdf" target="_blank" rel="noopener"><svg class="button-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M6.5 3.5h7l4 4v13h-11a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.5v4h4M8 13h8M8 16.5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>查看简历</a></div>
+            <div class="expertise"><strong>关注方向</strong><span>AI 产品</span><span>企业服务</span><span>提质增效</span></div>
+          </section>
+        </div>
+        <div class="footer-cue"><span class="scroll-line"></span><span>向下了解我的经历</span><span class="scroll-line"></span></div>
+      </section>
+    </main>
+    <section class="education" id="education" aria-labelledby="education-title">
+      <div class="education-inner">
+        <div class="education-heading">
+          <h2 id="education-title">教育经历</h2>
+        </div>
+        <div class="education-stage">
+          <article class="edu-card edu-card--bachelor">
+            <img class="edu-campus" src="assets/education/undergraduate-campus.jpg" alt="吉林大学校园春景" />
+            <div class="edu-top"><span class="edu-type">UNDERGRADUATE</span><span class="edu-seal"><img src="assets/education/jilin-university-seal.jpg" alt="吉林大学校徽" /></span></div>
+            <div>
+              <h3>吉林大学</h3>
+              <p class="edu-major">信息管理与信息系统 · 学士</p>
+              <div class="edu-meta"><span>2020.09 — 2024.06</span><span>本科</span></div>
+            </div>
+          </article>
+          <article class="edu-card edu-card--master">
+            <img class="edu-campus" src="assets/education/master-campus.jpg" alt="吉林大学校园建筑" />
+            <div class="edu-top"><span class="edu-type">MASTER'S DEGREE</span><span class="edu-seal"><img src="assets/education/jilin-university-seal.jpg" alt="吉林大学校徽" /></span></div>
+            <div>
+              <h3>吉林大学</h3>
+              <p class="edu-major">信息管理与信息系统 · 硕士在读</p>
+              <div class="edu-meta"><span>2024.09 — 2027.06</span><span>硕士</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="internships" id="internships" aria-labelledby="internship-title">
+      <div class="internship-inner">
+        <div class="internship-heading">
+          <div>
+            <h2 id="internship-title">实习档案</h2>
+          </div>
+        </div>
+        <div class="archive-layout">
+          <div class="internship-folder" id="internship-folder">
+            <div class="folder-back" aria-hidden="true"></div>
+            <button class="folder-front" type="button" data-folder-toggle aria-expanded="false" aria-controls="experience-deck" aria-label="展开三段实习经历">
+              <span class="folder-slot" aria-hidden="true"></span>
+              <span class="folder-title">实习档案</span>
+              <span class="folder-indicators" aria-hidden="true"><i></i><i></i><i></i></span>
+            </button>
+            <div class="experience-deck" id="experience-deck">
+              <article class="experience-card" data-file="01" style="--order: 1" aria-labelledby="experience-iflytek-title" data-position="center">
+                <div class="experience-record">
+                  <h3 id="experience-iflytek-title"><button class="experience-select" type="button" aria-expanded="false" aria-pressed="true" aria-controls="experience-iflytek-details">科大讯飞</button></h3>
+                  <div class="experience-details" id="experience-iflytek-details" aria-hidden="true" inert>
+                  <div class="experience-meta"><span>产品实习生</span><time>2026.06 — 2026.09</time></div>
+                  <p class="experience-overview">面向企业的数字员工工作平台，设计智能体分享、运营看板等功能模块</p>
+                  <ol class="experience-work">
+                    <li><h4>助手库功能设计</h4><p>负责企业助手库全生命周期设计，搭建官方、团队、个人助手的创建、获取、分享、审核、发版与更新链路，形成企业可复用的数字员工资产库</p></li>
+                    <li><h4>官网设计 <a class="cowork-link" href="https://cowork.iflydigital.com/" target="_blank" rel="noopener"><span class="cowork-link-icon" aria-hidden="true">✦</span>星辰 Cowork 官网</a></h4><p>重构页面信息架构与交互逻辑，无需界面设计师输出设计稿，自主完成页面设计并直接交付开发上线，跳过设计排期环节，缩短迭代周期</p></li>
+                    <li><h4>运营看板搭建</h4><p>设计用户与智能体两大维度，梳理能力调用、成本、性能、安全多维度指标，明确各项指标统计口径与可视化方案，推动需求落地，助力企业进行业务复盘与成本管控</p></li>
+                  </ol>
+                  </div>
+                </div>
+              </article>
+              <article class="experience-card" data-file="02" style="--order: 2" aria-labelledby="experience-astron-title" data-position="right">
+                <div class="experience-record">
+                  <h3 id="experience-astron-title"><button class="experience-select" type="button" aria-expanded="false" aria-pressed="false" aria-controls="experience-astron-details">山海星辰</button></h3>
+                  <div class="experience-details" id="experience-astron-details" aria-hidden="true" inert>
+                  <div class="experience-meta"><span>中台产品实习生</span><time>2026.02 — 2026.05</time></div>
+                  <p class="experience-overview">面向公司承制与内部的人工智能短剧制作团队，进行中台产品培训与问题解决，并优化产品功能</p>
+                  <ol class="experience-work">
+                    <li><h4>功能优化</h4><p>围绕新一代视频生成模型推出后制作团队新的使用需求，优化分镜创作中的故事版功能</p></li>
+                    <li><h4>失败案例收集与解决</h4><p>快速响应 30 多个内外部制作团队遇到的生成效果不理想、功能缺陷、生成报错等问题，保障业务连续稳定</p></li>
+                    <li><h4>产品培训与答疑</h4><p>围绕人工智能短剧制作的标准作业流程，组织培训与答疑，制作与更新产品手册、提示词参考手册，整理与评估需求</p></li>
+                  </ol>
+                  </div>
+                </div>
+              </article>
+              <article class="experience-card" data-file="03" style="--order: 3" aria-labelledby="experience-cmcc-title" data-position="left">
+                <div class="experience-record">
+                  <h3 id="experience-cmcc-title"><button class="experience-select" type="button" aria-expanded="false" aria-pressed="false" aria-controls="experience-cmcc-details">中移集成</button></h3>
+                  <div class="experience-details" id="experience-cmcc-details" aria-hidden="true" inert>
+                  <div class="experience-meta"><span>产品实习生</span><time>2025.06 — 2025.10</time></div>
+                  <p class="experience-overview">参与基于大模型的企业级知识库问答系统，优化智能对话、知识库相关功能模块</p>
+                  <ol class="experience-work">
+                    <li><h4>全流程项目推动</h4><p>优化对话、知识库功能模块的设计，清晰定义产品逻辑与用户体验流程，协同相关团队开展需求评审、排期跟踪与上线验收，推进产品功能落地，最终成功通过客户验收</p></li>
+                    <li><h4>竞品分析</h4><p>深入研究豆包等 10 余款竞品，系统分析智能问答及知识库模块功能，输出竞品分析报告及思维导图，总结并提出 10 余项产品优化方向建议</p></li>
+                  </ol>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <p class="folder-hint">点击文件夹或任意公司卡片，展开实习经历</p>
+        </div>
+      </div>
+    </section>
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="projects-inner">
+        <header class="projects-heading"><h2 id="projects-title">项目经历</h2></header>
+        <div class="projects-grid">
+          <article class="project-card project-card--zhiyue" aria-labelledby="zhiyue-title">
+            <div class="project-visual project-visual--phones">
+              <img class="zhiyue-phones" src="assets/projects/zhiyue-phones.png" width="1672" height="941" alt="知阅小程序的双手机界面，展示学习笔记、内容导入和智能追问" loading="lazy" />
+            </div>
+            <div class="project-copy">
+              <button class="zhiyue-code" type="button" data-project-image="assets/projects/zhiyue-miniprogram-code.jpg" data-caption="微信扫码体验知阅小程序" aria-label="放大知阅小程序码"><img src="assets/projects/zhiyue-miniprogram-code.jpg" width="344" height="344" alt="知阅小程序码，使用微信扫码体验" loading="lazy" /></button>
+              <span class="project-category">产品设计 · 微信小程序</span>
+              <h3 id="zhiyue-title">知阅小程序</h3>
+              <p>把碎片阅读变成可用知识，围绕内容导入、学习笔记与智能追问，让每一次阅读都值得回看</p>
+              <ul class="project-tags" aria-label="项目方向"><li>内容导入</li><li>学习笔记</li><li>智能追问</li></ul>
+            </div>
+          </article>
+          <article class="project-card project-card--research" aria-labelledby="duiduipeng-title">
+            <div class="project-visual project-visual--research" aria-label="研究报告页面，点击图片可放大">
+              <button class="research-sheet research-sheet--34" type="button" data-project-image="assets/projects/duiduipeng-page-34.webp" data-caption="对对碰研究报告 · 第 34 页 · 评论词云" aria-label="放大第34页：评论词云"><img src="assets/projects/duiduipeng-page-34.webp" width="993" height="1404" alt="第34页，短视频评论词云" loading="lazy" /></button>
+              <button class="research-sheet research-sheet--35" type="button" data-project-image="assets/projects/duiduipeng-page-35.webp" data-caption="对对碰研究报告 · 第 35 页 · 语义网络与情感分析" aria-label="放大第35页：语义网络与情感分析"><img src="assets/projects/duiduipeng-page-35.webp" width="993" height="1404" alt="第35页，语义网络和售后评价情感分析" loading="lazy" /></button>
+              <button class="research-sheet research-sheet--32" type="button" data-project-image="assets/projects/duiduipeng-page-32.webp" data-caption="对对碰研究报告 · 第 32 页 · 玩法模拟结果" aria-label="放大第32页：玩法模拟结果"><img src="assets/projects/duiduipeng-page-32.webp" width="993" height="1404" alt="第32页，玩法模拟结果与分析" loading="lazy" /></button>
+              <button class="research-sheet research-sheet--66" type="button" data-project-image="assets/projects/duiduipeng-page-66.webp" data-caption="对对碰研究报告 · 第 66 页 · 模型评估与特征重要性" aria-label="放大第66页：模型评估与特征重要性"><img src="assets/projects/duiduipeng-page-66.webp" width="993" height="1404" alt="第66页，ROC曲线与特征重要性分析" loading="lazy" /></button>
+              <button class="research-sheet research-sheet--36" type="button" data-project-image="assets/projects/duiduipeng-page-36.webp" data-caption="对对碰研究报告 · 第 36 页 · 评价词云" aria-label="放大第36页：评价词云"><img src="assets/projects/duiduipeng-page-36.webp" width="993" height="1404" alt="第36页，积极和消极评价词云" loading="lazy" /></button>
+              <button class="research-sheet research-sheet--49" type="button" data-project-image="assets/projects/duiduipeng-page-49.webp" data-caption="对对碰研究报告 · 第 49 页 · 用户画像" aria-label="放大第49页：用户画像"><img src="assets/projects/duiduipeng-page-49.webp" width="993" height="1404" alt="第49页，用户画像" loading="lazy" /></button>
+              <span class="research-hint">点击图片查看</span>
+            </div>
+            <div class="project-copy">
+              <div class="project-meta"><span class="project-category">用户研究 · 数据分析</span><a class="project-report-link" href="assets/projects/duiduipeng-full-report-0320.pdf" target="_blank" rel="noopener" aria-label="查看完整报告，PDF，在新标签页打开">查看完整报告 <span aria-hidden="true">↗</span></a></div>
+              <h3 id="duiduipeng-title">“对对碰”消费行为研究</h3>
+              <p>结合玩法模拟、评论文本分析与用户画像，探索游戏化直播特征与用户购买行为的关系</p>
+              <ul class="project-tags" aria-label="研究方法"><li>玩法模拟</li><li>情感分析</li><li>用户画像</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="ending" aria-label="结语">
+      <div class="ending-content">
+        <p>下一篇故事，希望我们一起创作！</p>
+        <div class="ending-actions"><button class="ending-email" type="button" data-email-dialog-open><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.5 5.7L19.5 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>我的邮箱</button><a class="ending-email" href="assets/resume/zhao-changchang-resume.pdf" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M6.5 3.5h7l4 4v13h-11a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.5v4h4M8 13h8M8 16.5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>在线简历</a></div>
+      </div>
+    </section>
+    <dialog class="email-dialog" aria-labelledby="email-dialog-title">
+      <button class="email-dialog-close" type="button" aria-label="关闭邮箱弹窗">×</button>
+      <p id="email-dialog-title">我的邮箱</p>
+      <a class="email-address" href="mailto:18632816300@163.com">18632816300@163.com</a>
+    </dialog>
+    <dialog class="project-lightbox" aria-labelledby="project-lightbox-caption">
+      <div class="project-lightbox-bar"><p id="project-lightbox-caption"></p><button type="button" class="project-lightbox-close" aria-label="关闭图片预览">关闭</button></div>
+      <img class="project-lightbox-image" alt="" />
+    </dialog>
+    <script>
+      const projectLightbox = document.querySelector('.project-lightbox');
+      const emailDialog = document.querySelector('.email-dialog');
+      document.querySelectorAll('[data-email-dialog-open]').forEach(button => button.addEventListener('click', () => emailDialog.showModal()));
+      emailDialog.querySelector('.email-dialog-close').addEventListener('click', () => emailDialog.close());
+      emailDialog.addEventListener('click', event => {
+        if (event.target === emailDialog) emailDialog.close();
+      });
+      const projectPreviewImage = projectLightbox.querySelector('img');
+      document.querySelectorAll('[data-project-image]').forEach(button => {
+        button.addEventListener('click', () => {
+          projectPreviewImage.src = button.dataset.projectImage;
+          projectPreviewImage.alt = button.dataset.caption;
+          document.querySelector('#project-lightbox-caption').textContent = button.dataset.caption;
+          projectLightbox.showModal();
+        });
+      });
+      projectLightbox.querySelector('button').addEventListener('click', () => projectLightbox.close());
+      projectLightbox.addEventListener('click', event => {
+        if (event.target !== projectLightbox) return;
+        const box = projectLightbox.getBoundingClientRect();
+        if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) projectLightbox.close();
+      });
+      const internshipSection = document.querySelector('.internships');
+      const folderToggle = document.querySelector('[data-folder-toggle]');
+      const experienceDeck = document.querySelector('.experience-deck');
+      const folderHint = document.querySelector('.folder-hint');
+      const experienceCards = [...document.querySelectorAll('.experience-card')];
+      let activeCard = 0;
+      let hoverLockedUntil = 0;
+      let lastHoverPoint = null;
+      const selectExperience = (index, event) => {
+        activeCard = index;
+        hoverLockedUntil = performance.now() + 1000;
+        lastHoverPoint = event ? { x: event.clientX, y: event.clientY } : null;
+        experienceCards.forEach((card, i) => {
+          card.dataset.position = i === index ? 'center' : i === (index + 2) % 3 ? 'left' : 'right';
+          card.querySelector('.experience-select').setAttribute('aria-pressed', String(i === index));
+        });
+      };
+      const sizeExperienceCards = () => {
+        const height = Math.max(...experienceCards.map(card => {
+          const css = getComputedStyle(card);
+          return card.querySelector('.experience-record').offsetHeight
+            + parseFloat(css.paddingTop) + parseFloat(css.paddingBottom)
+            + parseFloat(css.borderTopWidth) + parseFloat(css.borderBottomWidth);
+        }));
+        document.querySelector('.internship-folder').style.setProperty('--expanded-paper-height', `${Math.ceil(height) + 4}px`);
+      };
+      const cardObserver = new ResizeObserver(sizeExperienceCards);
+      document.querySelectorAll('.experience-record').forEach(record => cardObserver.observe(record));
+      document.fonts.ready.then(sizeExperienceCards);
+      const setFolderState = (open) => {
+        sizeExperienceCards();
+        internshipSection.classList.toggle('is-open', open);
+        folderToggle.setAttribute('aria-expanded', String(open));
+        folderToggle.setAttribute('aria-label', open ? '收起三段实习经历' : '展开三段实习经历');
+        experienceCards.forEach(card => {
+          const details = card.querySelector('.experience-details');
+          details.inert = !open;
+          details.setAttribute('aria-hidden', String(!open));
+          card.querySelector('.experience-select').setAttribute('aria-expanded', String(open));
+        });
+        hoverLockedUntil = performance.now() + 1000;
+        folderHint.textContent = open ? '悬浮或点击两侧卡片切换 · 点击文件夹收起' : '点击文件夹或任意公司卡片，展开实习经历';
+        if (!open) selectExperience(0);
+      };
+      folderToggle.addEventListener('click', () => setFolderState(!internshipSection.classList.contains('is-open')));
+      experienceCards.forEach((card, index) => {
+        card.addEventListener('click', event => {
+          selectExperience(index, event);
+          if (!internshipSection.classList.contains('is-open')) setFolderState(true);
+        });
+        const hoverCard = event => {
+          if (event.pointerType !== 'mouse' || !internshipSection.classList.contains('is-open') || index === activeCard || performance.now() < hoverLockedUntil) return;
+          if (lastHoverPoint && Math.hypot(event.clientX - lastHoverPoint.x, event.clientY - lastHoverPoint.y) < 12) return;
+          selectExperience(index, event);
+        };
+        card.addEventListener('pointerenter', hoverCard);
+        card.addEventListener('pointermove', hoverCard);
+        card.querySelector('.experience-select').addEventListener('focus', () => {
+          if (internshipSection.classList.contains('is-open')) selectExperience(index);
+        });
+      });
+      internshipSection.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && internshipSection.classList.contains('is-open')) {
+          setFolderState(false);
+          folderToggle.focus({ preventScroll: true });
+        }
+      });
+    </script>
+  </body>
+</html>
